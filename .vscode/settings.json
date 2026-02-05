@@ -1,7 +1,13 @@
 {
-  "editor.wordWrap": "on",
-  "editor.rulers": [
-    {"column": 80, "color": "#ffd000"}
-  ],
-  "editor.wordWrapColumn": 80
+ "editor.defaultFormatter": "ms-python.black-formatter",
+ "editor.formatOnPaste": true,
+ "editor.formatOnSave": true,
+
+"editor.rulers": [
+   {
+     "column": 80,    // spacing of 1st column from left
+     "color": "#ff9900"   // orange, Go Vols!
+   },
+],
+
 }
