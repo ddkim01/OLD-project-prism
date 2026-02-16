@@ -30,7 +30,7 @@
 
 """Using this video for building this game: https://www.youtube.com/watch?v=gIjVwODrXC8"""
 
-"""Deine the constants for the grid dimensions and cell size"""
+"""Define the constants for the grid dimensions and cell size"""
 # Define colors for each tetromino type
 Black = (0, 0, 0)
 White = (255, 255, 255)
@@ -64,5 +64,3 @@ Shapes = [
     [[1, 1, 0], [0, 1, 1]],  # S shape
     [[0, 1, 1], [1, 1, 0]],  # Z shape
 ]
-
-

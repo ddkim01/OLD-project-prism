@@ -9,5 +9,6 @@
      "color": "#ff9900"   // orange, Go Vols!
    },
 ],
+"python.REPL.enableREPLSmartSend": false,
 
 }
