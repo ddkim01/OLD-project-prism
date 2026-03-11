@@ -1,45 +1,65 @@
-# STEP 1: INSTALL AND IMPORT PYGAME
 import pygame
-import sys
-
-# STEP 2: SETUP THE GAME LOOP
-""" How to initialise Pygame. You have to initialise the clock outside the
-while loop. """
-pygame.init()
-screen = pygame.display.set_mode((300, 600))
-pygame.display.set_caption("Python Tetris")
-clock = pygame.time.Clock()
-
-""" While loop ensures the game is running forever until we close it. """
-while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-    colour = (41, 46, 57)
-    screen.fill(colour)
-    pygame.display.update()
-    clock.tick(60)
-
-# STEP 3: CREATE THE GRID
+import random
 
 
-# STEP 4: CREATE THE BLOCKS
+class Tetromino:
+    Shapes = [
+        [[1, 1, 1, 1]],  # I shape
+        [[1, 1], [1, 1]],  # O shape
+        [[0, 1, 0], [1, 1, 1]],  # T shape
+        [[1, 0, 0], [1, 1, 1]],  # J shape
+        [[0, 0, 1], [1, 1, 1]],  # L shape
+        [[1, 1, 0], [0, 1, 1]],  # S shape
+        [[0, 1, 1], [1, 1, 0]],  # Z shape
+    ]
+    """Define the constants for the grid dimensions and cell size"""
+    # Define colors for each tetromino type
+    Black = (0, 0, 0)
+    White = (255, 255, 255)
+    Cyan = (0, 255, 255)
+    Blue = (0, 0, 255)
+    Orange = (255, 165, 0)
+    Yellow = (255, 255, 0)
+    Green = (0, 255, 0)
+    Purple = (128, 0, 128)
+    Magenta = (255, 0, 255)
+    Gray = (128, 128, 128)  # colour for the border
+    Colors = {
+        "I": "cyan",
+        "O": "yellow",
+        "T": "purple",
+        "J": "blue",
+        "L": "orange",
+        "S": "green",
+        "Z": "red",
+    }
+    # Define game dimensions
+    BlockSize = 30  # Size of each block in pixels
+    GridWidth = 10  # Number of columns in the game grid
+    GridHeight = 20  # Number of rows in the game grid
+    BorderWidth = 4  # Width of the border around the grid
+    screenWidth = (
+        BlockSize * GridWidth + BorderWidth * 2 + 200
+    )  # Total width of the screen (grid + border + extra space for score)
+    screenHeight = BlockSize * GridHeight + BorderWidth  # Total height of the screen
 
-# STEP 5: MOVE THE BLOCKS
 
-# STEP 6: ROTATE THE BLOCKS
+class Tetris:
+    # def __init__(self):
+    # Initialise Pygame, set up the screen, clock, etc.
+    # Initialise the game grid, current piece, score, etc.
+    # So "self" refers to the instance of the class that is being created. So when we create a new Tetris game, we can access these attributes and methods using "self".
+    #
+    # Note variables refer to instances where instances are the actual objects created from the class.
 
-# STEP 7: CHECKING FOR COLLISIONS
+    def newPiece(self):
+        # Create a new tetronimo piece
+        key = random.choice(list(self.Shapes.keys()))
+        shape = self.Shapes[key]
+        color = self.Colors[key]
+        return shape, color
 
-# STEP 8: CHECK FOR COMPLETED ROWS
 
-# STEP 9: GAME OVER
-
-# STEP 10: Create UUI
-
-# STEP 11: ADD SCORE
-
-# STEP 12: ADD NEXT BLOCK
-
-# STEP 13: ADD SOUNDS
+if __name__ == "__main__":
+    piece = Tetromino()
+    print("Shape:", piece.Shapes[2])
